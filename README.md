@@ -18,7 +18,6 @@ Creating and Optimizing an ML-Pipeline (figure taken from [Udacity Azure ML Nano
 
 **Dataset**
 * The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
-* The marketing campaigns were conducted via phone calls. 
 * The dataset represents a binary classification task.
 * The dataset contains 20 input features and 1 output feature.
 * The target classification denotes whether a given financial product: _bank term deposit_, would be subscribed to or not, denoted **yes** and **no** respectively.
@@ -34,7 +33,10 @@ The dataset used in this project was sourced [here](https://automlsamplenotebook
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
 ## Scikit-learn Pipeline
-**Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+The pipeline architecture: 
+* including data, 
+* hyperparameter tuning, and 
+* classification algorithm.
 
 **What are the benefits of the parameter sampler you chose?**
 

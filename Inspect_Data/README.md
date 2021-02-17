@@ -44,6 +44,12 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 
 21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
 
+### Target distribution
+
+This figure shows the degree of imbalance in the dataset regarding the distribution of the target feature value:
+
+![alt text](./img/P1_ML_Azure_ND__Data_Inspection__TargetDistribution.png "Target Distribution")
+
 ##### References:
 
 * S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
