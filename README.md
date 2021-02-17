@@ -8,7 +8,7 @@ This project is part of the [Udacity Azure ML Nanodegree](https://www.udacity.co
 * Hyperparameter optimization of this model was carried out using [Azure HyperDrive](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). 
 * This model was then compared to the results obtained using an [Azure AutoML](https://azure.microsoft.com/en-us/services/machine-learning/automatedml/) run.
 
-The main steps required  to create, optimize and compare the output of a Scikit-learn ML-Pipeline against AutoML are illustrated below (figure taken from [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333) course notes): 
+The main steps required  to create, optimize and compare the output of a Scikit-learn ML-Pipeline against AutoML are illustrated below (figure sourced from [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333) course notes): 
 
 ![alt text](./img/creating-and-optimizing-an-ml-pipeline.png "Creating and optimizing an ml-pipeline")
 
@@ -17,17 +17,17 @@ The main steps required  to create, optimize and compare the output of a Scikit-
 ### Problem Statement
 
 **Dataset**
-* The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
-* The dataset represents a binary classification task.
-* The dataset contains 20 input features and 1 output feature.
+* The dataset is derived from the direct marketing campaigns of a Portuguese banking institution and represents a binary classification task.
 * The target classification denotes whether a given financial product: _bank term deposit_, would be subscribed to or not, denoted **yes** and **no** respectively.
 
 **Aim**
 * The aim is to train models which can learn to predict the target class by fitting the input features in the dataset using machine learning algorithms.
 
-More information about the dataset can be found [here](./Inspect_Data/README.md).
-
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+
+Some inspection of the dataset can be viewed [here](./Inspect_Data/).
+
+
 
 ### Outcome
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
