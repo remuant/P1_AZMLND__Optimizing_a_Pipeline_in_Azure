@@ -37,3 +37,5 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 **Output feature (target):**
 
 21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
+
+[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014

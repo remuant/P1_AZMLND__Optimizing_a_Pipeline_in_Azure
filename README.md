@@ -16,18 +16,12 @@ This model is then compared to an Azure AutoML run.
 * The target classification denotes whether a given financial product: _bank term deposit_, would be subscribed to or not, denoted **yes** and **no** respectively.
 
 **Aim**
-* The aim is to train a model which can learn to predict the target class by fitting the input features in the dataset using a machine learning algorithm.
+* The aim is to train models which can learn to predict the target class by fitting the input features in the dataset using machine learning algorithms.
 
 More information about the dataset can be found [here](./Inspect_Data/README.md).
+
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for other versions of the dataset and information.
-
-
-
-
-
-[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
