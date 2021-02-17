@@ -8,6 +8,12 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 
 ### Dataset description
 
+* The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
+* The marketing campaigns were conducted via phone calls. 
+* The dataset represents a binary classification task.
+* The dataset contains 20 input features and 1 output feature.
+* The target classification denotes whether a given financial product: _bank term deposit_, would be subscribed to or not, denoted **yes** and **no** respectively.
+
 **Input features:**
 
 1. **age**: (numeric)
@@ -38,4 +44,7 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 
 21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
 
-[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
+##### References:
+
+* S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
+* S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimaraes, Portugal, October, 2011. EUROSIS.
