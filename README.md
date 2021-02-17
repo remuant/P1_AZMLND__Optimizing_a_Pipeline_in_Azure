@@ -1,9 +1,17 @@
 # Optimizing an ML Pipeline in Azure
 
 ## Overview
-This project is part of the Udacity Azure ML Nanodegree.
-In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model.
-This model is then compared to an Azure AutoML run.
+This project is part of the [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333).
+
+* In this project, an [Azure](https://azure.microsoft.com/en-us/) ML pipeline is built and optimized using the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-overview) and a provided [Scikit-learn](https://scikit-learn.org/stable/) model.
+* The Scit-kit-learn model used is a [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier.
+* Hyperparameter optimization of this model was carried out using [Azure HyperDrive](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). 
+* This model is then compared to an [Azure AutoML](https://azure.microsoft.com/en-us/services/machine-learning/automatedml/) run.
+
+Creating and Optimizing an ML-Pipeline (figure taken from [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333) course notes): 
+
+![alt text](./img/creating-and-optimizing-an-ml-pipeline.png "Creating and optimizing an ml-pipeline")
+
 
 ## Summary
 **Problem Statement**
