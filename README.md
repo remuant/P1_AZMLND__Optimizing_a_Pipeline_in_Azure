@@ -14,7 +14,7 @@ Creating and Optimizing an ML-Pipeline (figure taken from [Udacity Azure ML Nano
 
 
 ## Summary
-**Problem Statement**
+### Problem Statement
 
 **Dataset**
 * The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
@@ -30,7 +30,7 @@ More information about the dataset can be found [here](./Inspect_Data/README.md)
 
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-
+### Outcome
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
 ## Scikit-learn Pipeline
