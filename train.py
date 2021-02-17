@@ -103,7 +103,11 @@ def main():
     run.log("Accuracy", np.float(accuracy))
 
     # Save the model
-    # See this for useful information: https://knowledge.udacity.com/questions/424266
+    # See these links for useful information:
+    # https://knowledge.udacity.com/questions/424266
+    # https://www.kaggle.com/pankaj1234/azure-machine-learning-model-training
+    # https://towardsdatascience.com/azure-machine-learning-service-train-a-model-df72c6b5dc
+    os.makedirs("outputs", exist_ok=True)  # Precautionary, should automatically be created
     joblib.dump(value=model, filename="./outputs/my_model.joblib")
 
 
