@@ -18,10 +18,10 @@ This model is then compared to an Azure AutoML run.
 **Aim**
 * The aim is to train a model which can learn to predict the target class by fitting the input features in the dataset using a machine learning algorithm.
 
+More information about the dataset can be found [here](./Inspect_Data/README.md).
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
 See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for other versions of the dataset and information.
-
 
 
 
