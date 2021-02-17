@@ -9,6 +9,7 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 ### Dataset description
 
 **Input features:**
+
 1. **age**: (numeric)
 2. **job**: type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')
 3. **marital**: marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)
@@ -16,7 +17,7 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 5. **default**: has credit in default? (categorical: 'no','yes','unknown')
 6. **housing**: has housing loan? (categorical: 'no','yes','unknown')
 7. **loan**: has personal loan? (categorical: 'no','yes','unknown')
-##### related with the last contact of the current campaign:
+#### related with the last contact of the current campaign:
 8. **contact**: contact communication type (categorical: 'cellular','telephone')
 9. **month**: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')
 10. **day_of_week**: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')
@@ -34,4 +35,5 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 20. **nr.employed**: number of employees - quarterly indicator (numeric)
 
 **Output feature (target):**
-21. **y**: has the client subscribed a term deposit? (binary: 'yes','no')
+
+21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
