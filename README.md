@@ -3,10 +3,10 @@
 ## Overview
 This project is part of the [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333).
 
-* In this project, an [Azure](https://azure.microsoft.com/en-us/) ML pipeline is built and optimized using the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-overview) and a provided [Scikit-learn](https://scikit-learn.org/stable/) model.
-* The Scikit-learn model used is a [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier.
+* In this project, an [Azure](https://azure.microsoft.com/en-us/) ML pipeline was built and optimized using the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-overview) and a provided [Scikit-learn](https://scikit-learn.org/stable/) model.
+* The Scikit-learn model used was a [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier.
 * Hyperparameter optimization of this model was carried out using [Azure HyperDrive](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). 
-* This model is then compared to the results obtained using an [Azure AutoML](https://azure.microsoft.com/en-us/services/machine-learning/automatedml/) run.
+* This model was then compared to the results obtained using an [Azure AutoML](https://azure.microsoft.com/en-us/services/machine-learning/automatedml/) run.
 
 The main steps required  to create, optimize and compare the output of a Scikit-learn ML-Pipeline against AutoML are illustrated below (figure taken from [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333) course notes): 
 
@@ -33,15 +33,27 @@ The dataset used in this project was sourced [here](https://automlsamplenotebook
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
 ## Scikit-learn Pipeline
-The pipeline architecture: 
-* including data, 
-* hyperparameter tuning, and 
-* classification algorithm.
+
+### The pipeline architecture: 
+
+#### Data Preparation
+* Source
+* Cleaning - removal of missing values (none to remove in this case), OHE for categorical features, convert some categorical features to binary (map months and day of week).
+* Train-Test split - data imbalance
+* Investigated data using notebook to see whether certain features were clearly influential.
+
+#### Classification Algorithm.
+* [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier.
+* Which parameters were investigated.
+* Performance metric - accuracy.
+
+#### Hyperparameter Tuning
+* HyperDrive
 
 **What are the benefits of the parameter sampler you chose?**
+
+The [RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) class was used.
 ```
-# Specify parameter sampler
-# https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling
 param_dict = {
     "--C" : uniform(0.001, 2.0),
     "--max_iter" : choice(10,25,50,100,150,200,250)
@@ -50,9 +62,9 @@ ps = RandomParameterSampling(param_dict)
 ```
 
 **What are the benefits of the early stopping policy you chose?**
+
+The [BanditPolicy](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) was used.
 ```
-# Specify a Policy
-# https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy
 policy = BanditPolicy(evaluation_interval=5, slack_factor=0.2)
 ```
 
@@ -63,7 +75,7 @@ policy = BanditPolicy(evaluation_interval=5, slack_factor=0.2)
 **Compare the two models and their performance.** 
 * What are the differences in accuracy? 
 * In architecture? 
-* If there was a difference, why do you think there was one?**
+* If there was a difference, why do you think there was one?
 
 ## Future work
 **What are some areas of improvement for future experiments? Why might these improvements help the model?**
