@@ -6,7 +6,28 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+**Problem Statement**
+
+**Dataset**
+* The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
+* The marketing campaigns were conducted via phone calls. 
+* The dataset represents a binary classification task.
+* The dataset contains 20 input features and 1 output feature.
+* The target classification denotes whether a given financial product: _bank term deposit_, would be subscribed to or not, denoted **yes** and **no** respectively.
+
+**Aim**
+* The aim is to train a model which can learn to predict the target class by fitting the input features in the dataset using a machine learning algorithm.
+
+The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+
+See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for other versions of the dataset and information.
+
+
+
+
+
+
+[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
