@@ -25,7 +25,7 @@ The main steps required  to create, optimize and compare the output of a Scikit-
 
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-Some inspection of the dataset can be viewed [here](./Inspect_Data/).
+Some inspection of the dataset and additional information about the data can be viewed [here](./Inspect_Data/) where a Jupyter notebook can be found containing implementation which allows the target distribution for different features to be viewed.
 
 
 
@@ -42,28 +42,58 @@ Some inspection of the dataset can be viewed [here](./Inspect_Data/).
 raw_data_url = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 ds = TabularDatasetFactory.from_delimited_files(raw_data_url)
 ```
-* **Data cleaning**; a function was created to handle data cleaning in which the following steps were carried out:
-  - Rows containing missing values were removed (for this dataset no rows needed to be removed).
+* **Data cleaning**; a function, `clean_data`, was created to handle data cleaning in which the following steps were carried out:
+  - Rows containing missing values can be removed (for this particular dataset no rows needed to be removed).
   - Certain categorical features were converted to a One-Hot-Encoding in order to make the features consumable for ML models and preserve the categorical information. 
   - Conversion of some categorical features to binary, e.g. the feature `marital`, which indicates marital status, was converted from a 4 category feature to a binary feature indicating **married** or **not-married**.
-  - Categorical features `month` and `day of week` were mapped to an integer encoding which preserves the relative temporal information.
+  - Categorical features `month` and `day of week` were mapped to an integer encoding which preserves the relative temporal positioning information.
     
-* **Create train and test set**:
+* **Create train and test sets**:
     - Scikit-learn's `train_test_split` [function](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) was used to create a train and test set in which 33% of the available data was assigned to the test set. 
-    - The `train_test_split` function's `stratify` parameter was used to ensure that the distribution of the target class in the full dataset would the same in the train and test sets (this was achieved by passing the target data column to the stratify parameter).
-    - The data is ver imbalanced. The use of the `stratify` parameter...
+    - The `train_test_split` function's `stratify` parameter was used to ensure that the distribution of the target class in the train and test sets would the same as that found in the full dataset (this was achieved by passing the target data column to the stratify parameter).
+    - **Note**: The data is very imbalanced with 88% of the examples being in the **_no_** target category (see [here](./Inspect_Data/) for some inspection of the data). The use of the `stratify` parameter was implemented to ensure that the imbalance of the target distribution was not made more extreme in either the training or test sets after random sampling.
     
 #### Classification Algorithm.
-* [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier.
-* Which parameters were investigated.
-* Performance metric - accuracy.
+* The [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier was used in the Scikit-learn pipeline.
+* Logistic Regression uses a linear regression equation to produce discrete binary outputs. 
+* The parameters which were investigated:
+  - `C`: Inverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization.
+  - `max_iter`: Maximum number of iterations taken for the solvers to converge.
+  - **Note**: Given the imbalanced distribution of the target values in the dataset, it would also be appropriate to investigate parameter settings for the `class_weight` parameter, see **Future Work** section.
+    - Weights associated with classes in the form `{class_label: weight}`. If not given, all classes are supposed to have weight one.
+
+* Performance metric:
+  - **Test set accuracy**, i.e. the total sum of the **True Postive** and **True Negative** classifications as a percentage of the total available test examples.
+  - **Note**: Area Under Curve (AUC) may have been a more appropriate choice due to dataset imbalance, see **Future Work** section.
 
 #### Hyperparameter Tuning
-* HyperDrive
+Hyperparameter optimization of the [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier was carried out using [Azure HyperDrive](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 
-**What are the benefits of the parameter sampler you chose?**
+##### Parameter Sampler:
+This required the creation of a [parameter sampler](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters) to select and combine the parameter values to be optimized.
 
-The [RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) class was used.
+Three choices of [parameter sampler](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters) were available:
+* [RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling)
+  - In random sampling, hyperparameter values are randomly selected from the defined parameter-value search space.
+  - Discrete and continuous choice of hyperparameters are supported.
+  - Early termination of low-performance runs is supported.
+* [GridParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling)
+  - In grid sampling an exhaustive search of the defined parameter-value search space is carried out.
+  - **Only discrete choice** of parameter-values is supported.
+  - Early termination of low-performance runs is supported.
+* [BayesianParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling)
+  - Based on the Bayesian optimization algorithm.
+  - Bayesian parameter sampling selects samples based on how previous samples performed, so that new samples improve the primary metric.
+  - Bayesian sampling only supports discrete choice, uniform, and quniform distributions over the parameter-value search space.
+  - Early termination of low-performance runs is **NOT supported**.
+
+[RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) was selected as it is the least computationally expensive of the three choices and supports discrete and continuous selection of parameter-values, i.e. a set of discrete parameter-values can be defined as well as a range over which parameter-values should be selected could be defined.
+Support for early termination of low-performance runs also made this sampler an attractive choice. This is an efficient strategy for at least identifying a promising area of the hyperparameter space before applying the more computationally expensive [Grid](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling) and [Bayesian](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling) sampling strategies. 
+
+Using [RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling):
+* A **parameter dictionary** was defined which sets out which parameters are to be optimized and over which range or set of values. 
+* The code snippet below shows the parameter dictionary used optimized the `C` parameter over a **uniform** distribution in the range specified, and the `max_iter` parameter over a discrete **choice** of specified values.
+* The parameter dictionary was then passed to the [RandomParameterSampling](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) class at initialization.
 ```
 param_dict = {
     "--C" : uniform(0.001, 2.0),
@@ -72,7 +102,23 @@ param_dict = {
 ps = RandomParameterSampling(param_dict)
 ```
 
+##### Early Termination Policy:
 **What are the benefits of the early stopping policy you chose?**
+
+Four choices of [early termination policy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters) were available:
+* [Bandit policy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#bandit-policy)
+  - This policy is based on slack factor/slack amount and evaluation interval.
+  - Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
+* [Median stopping policy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#median-stopping-policy)
+  - This is an early termination policy based on running averages of primary metrics reported by the runs.
+  - This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages.
+* [Truncation selection policy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#truncation-selection-policy)
+  - This policy cancels a percentage of lowest performing runs at each evaluation interval.
+  - Runs are compared using the primary metric.
+* [No termination policy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters#no-termination-policy-default)
+  - If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
+
+
 
 The [BanditPolicy](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) was used.
 ```
