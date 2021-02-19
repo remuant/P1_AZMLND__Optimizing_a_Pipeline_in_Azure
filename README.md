@@ -12,7 +12,6 @@ The main steps required  to create, optimize and compare the output of a Scikit-
 
 ![alt text](./img/creating-and-optimizing-an-ml-pipeline.png "Creating and optimizing an ml-pipeline")
 
-
 ## Summary
 ### Problem Statement
 
@@ -121,6 +120,10 @@ Four choices of [early termination policy](https://docs.microsoft.com/en-us/azur
 
 
 The [BanditPolicy](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) was used.
+This allows an aggressive policy for termination of runs to be enabled by using a criteria which ensures that surviving runs are within a margin of the best run defined by the slack factor.
+The criteria used by the median stopping policy could be influenced by outlier results. The truncation policy terminates a percentage of the lowest performing runs which could leave other poor runs to continue.
+
+The [BanditPolicy](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) was implemeted as shown in this code snippet:
 ```
 policy = BanditPolicy(evaluation_interval=5, slack_factor=0.2)
 ```
