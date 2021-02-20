@@ -52,7 +52,7 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 
 21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
 
-### Target distribution
+### Target distribution (see [notebook](P1_ML_Azure_ND__Data_Inspection__RAW_DATA.ipynb))
 
 This figure shows the degree of imbalance in the dataset regarding the distribution of the target feature value:
 
@@ -82,7 +82,7 @@ After the cleaning procedure was applied the resulting dataset contains 39 input
 16. euribor3m
 17. nr.employed
        
-#### Job OHE as a set of binary input features which denote the original categories of the job feature:
+#### Job OHE: a set of binary input features which denote the original categories of the job feature
 
 18. job_admin.
 19. job_blue-collar
@@ -97,12 +97,12 @@ After the cleaning procedure was applied the resulting dataset contains 39 input
 28. job_unemployed
 29. job_unknown
 
-#### Contact OHE as a set of binary input features which denote the original categories of the contact feature:
+#### Contact OHE: a set of binary input features which denote the original categories of the contact feature
 
 30. contact_cellular
 31. contact_telephone
     
-#### Education OHE as a set of binary input features which denote the original categories of the education feature:
+#### Education OHE: a set of binary input features which denote the original categories of the education feature
 
 32. education_basic.4y
 33. education_basic.6y
@@ -117,7 +117,7 @@ After the cleaning procedure was applied the resulting dataset contains 39 input
 
 40. y
 
-##### References:
+### References:
 
 * S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
 * S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimaraes, Portugal, October, 2011. EUROSIS.
