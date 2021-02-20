@@ -14,7 +14,7 @@ The dataset used in this project was sourced [here](https://automlsamplenotebook
 
 See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for other versions of the dataset and information.
 
-### Dataset description
+### Dataset description (information sourced from [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing))
 
 * The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
 * The marketing campaigns were conducted via phone calls. 
