@@ -50,6 +50,65 @@ This figure shows the degree of imbalance in the dataset regarding the distribut
 
 ![alt text](./img/P1_ML_Azure_ND__Data_Inspection__TargetDistribution.png "Target Distribution")
 
+### After cleaning
+
+After the cleaning procedure was applied the resulting dataset contains 39 input features and 1 output feature:
+
+1. age 
+2. marital
+3. default
+4. housing
+5. loan
+6. month
+7. day_of_week
+       
+8. duration
+9. campaign
+10. pdays
+11. previous
+12. poutcome
+13. emp.var.rate
+       
+14. cons.price.idx
+15. cons.conf.idx
+16. euribor3m
+17. nr.employed
+       
+#### Job OHE as a set of binary input features which denote the original categories of the job feature:
+
+18. job_admin.
+19. job_blue-collar
+20. job_entrepreneur
+21. job_housemaid
+22. job_management
+23. job_retired
+24. job_self-employed
+25. job_services
+26. job_student
+27. job_technician
+28. job_unemployed
+29. job_unknown
+
+#### Contact OHE as a set of binary input features which denote the original categories of the contact feature:
+
+30. contact_cellular
+31. contact_telephone
+    
+#### Education OHE as a set of binary input features which denote the original categories of the education feature:
+
+32. education_basic.4y
+33. education_basic.6y
+34. education_basic.9y
+35. education_high.school
+36. education_illiterate
+37. education_professional.course
+38. education_university.degree 
+39. education_unknown
+    
+**Output feature (target):**
+
+40. y
+
 ##### References:
 
 * S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014
