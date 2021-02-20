@@ -141,9 +141,12 @@ best_run = hd_run.get_best_run_by_primary_metric()
 os.makedirs("outputs", exist_ok=True)  # Ensure that there is a local outputs folder
 best_run.download_file(best_run.get_file_names()[-1], output_file_path='./outputs/')  # Download
 ```
++ Verify that best model has been retrieved:
+```
+joblib.load('./outputs/my_model.joblib')
+```
 
-
-* Register the model.
+* Register the model:
 ```
 best_hyperdrive_model = best_run.register_model(
     model_name="best_hyperdrive_model",
