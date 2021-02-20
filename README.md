@@ -43,14 +43,17 @@ ds = TabularDatasetFactory.from_delimited_files(raw_data_url)
 ```
 * **Data cleaning**; a function, `clean_data`, was created to handle data cleaning in which the following steps were carried out:
   - Rows containing missing values can be removed (for this particular dataset no rows needed to be removed).
-  - Certain categorical features were converted to a One-Hot-Encoding in order to make the features consumable for ML models and preserve the categorical information. 
+  - Certain categorical features were converted to a One-Hot-Encoding comprising new binary input features in order to make the features consumable for ML models and preserve the categorical information. 
   - Conversion of some categorical features to binary, e.g. the feature `marital`, which indicates marital status, was converted from a 4 category feature to a binary feature indicating **married** or **not-married**.
   - Categorical features `month` and `day of week` were mapped to an integer encoding which preserves the relative temporal positioning information.
-    
+  - The initial _raw_ dataset comprised **21 features**: **20** inputs and **1** target output.
+  - The cleaned version comprised **40** features: **39** inputs and **1** target output.
+  - See [here](./Inspect_Data/) for some inspection of the data.
 * **Create train and test sets**:
     - Scikit-learn's `train_test_split` [function](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) was used to create a train and test set in which 33% of the available data was assigned to the test set. 
     - The `train_test_split` function's `stratify` parameter was used to ensure that the distribution of the target class in the train and test sets would the same as that found in the full dataset (this was achieved by passing the target data column to the stratify parameter).
-    - **Note**: The data is very imbalanced with 88% of the examples being in the **_no_** target category (see [here](./Inspect_Data/) for some inspection of the data). The use of the `stratify` parameter was implemented to ensure that the imbalance of the target distribution was not made more extreme in either the training or test sets after random sampling.
+    - **Note**: The data is very imbalanced with **88%** of the examples being in the **_no_** target category (see [here](./Inspect_Data/) for some inspection of the data). 
+      - The use of the `stratify` parameter was implemented to ensure that the imbalance of the target distribution was not made more extreme in either the training or test sets after random sampling.
     
 #### Classification Algorithm.
 * The [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier was used in the Scikit-learn pipeline.
