@@ -1,5 +1,14 @@
 # Optimizing an ML Pipeline in Azure
 
+## Table of contents
+   * [Overview](#Overview)
+   * [Summary](#Summary)
+   * [Scikit-learn Pipeline](#Scikit-learn-Pipeline)
+   * [AutoML](#AutoML)
+   * [Pipeline comparison](#Pipeline-comparison)
+   * [Future work](#Future-work)
+   * [Proof of cluster clean up](#Proof-of-cluster-clean-up)
+
 ## Overview
 This project is part of the [Udacity Azure ML Nanodegree](https://www.udacity.com/course/machine-learning-engineer-for-microsoft-azure-nanodegree--nd00333).
 
