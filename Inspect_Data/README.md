@@ -1,5 +1,13 @@
 # Banking Dataset
 
+## Table of contents
+   * [Sources](#Sources)
+   * [Dataset description](#Dataset-description)
+   * [Target distribution](#Target-distribution)
+   * [Dataset after cleaning](#Dataset-after-cleaning)
+   * [References](#References)
+
+
 ### Sources
 
 The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
@@ -50,7 +58,7 @@ This figure shows the degree of imbalance in the dataset regarding the distribut
 
 ![alt text](./img/P1_ML_Azure_ND__Data_Inspection__TargetDistribution.png "Target Distribution")
 
-### After cleaning
+### Dataset after cleaning
 
 After the cleaning procedure was applied the resulting dataset contains 39 input features and 1 output feature:
 
