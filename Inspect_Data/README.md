@@ -14,7 +14,8 @@ The dataset used in this project was sourced [here](https://automlsamplenotebook
 
 See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for other versions of the dataset and information.
 
-### Dataset description (information sourced from [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing))
+### Dataset description 
+Note: Information for this section sourced from [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing).
 
 * The dataset is derived from the direct marketing campaigns of a Portuguese banking institution. 
 * The marketing campaigns were conducted via phone calls. 
@@ -52,7 +53,8 @@ See also [here](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing) for othe
 
 21. **y**: has the client subscribed to a term deposit? (binary: 'yes','no')
 
-### Target distribution (see [notebook](P1_ML_Azure_ND__Data_Inspection__RAW_DATA.ipynb))
+### Target distribution
+Note: See [notebook](P1_ML_Azure_ND__Data_Inspection__RAW_DATA.ipynb).
 
 This figure shows the degree of imbalance in the dataset regarding the distribution of the target feature value:
 
