@@ -31,9 +31,9 @@ The main steps required  to create, optimize and compare the output of a Scikit-
 **Aim**
 * The aim is to train models which can learn to predict the target class by fitting the input features in the dataset using machine learning algorithms.
 
-The dataset used in this project was sourced [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+The dataset used in this project was sourced from [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-Some inspection of the dataset and additional information about the data can be viewed [here](./Inspect_Data/) where a Jupyter notebook can be found containing implementation which allows the target distribution for different features to be viewed.
+**Note**: Some insights gained via inspection of the dataset before training and additional information about the dataset can be viewed [here](./Inspect_Data/).
 
 
 
