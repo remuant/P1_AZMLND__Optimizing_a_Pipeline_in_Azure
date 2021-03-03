@@ -1,0 +1,82 @@
+WARNING:root:The version of the SDK does not match the version the model was trained on.
+WARNING:root:The consistency in the result may not be guaranteed.
+WARNING:root:Package:azureml-automl-core, training version:1.23.0, current version:1.22.0
+Package:azureml-automl-runtime, training version:1.23.0, current version:1.22.0
+Package:azureml-core, training version:1.23.0, current version:1.22.0
+Package:azureml-dataprep, training version:2.10.1, current version:2.9.1
+Package:azureml-dataprep-native, training version:30.0.0, current version:29.0.0
+Package:azureml-dataprep-rslex, training version:1.8.0, current version:1.7.0
+Package:azureml-dataset-runtime, training version:1.23.0, current version:1.22.0
+Package:azureml-defaults, training version:1.23.0, current version:1.22.0
+Package:azureml-interpret, training version:1.23.0, current version:1.22.0
+Package:azureml-mlflow, training version:1.23.0, current version:1.22.0
+Package:azureml-pipeline-core, training version:1.23.0, current version:1.22.0
+Package:azureml-telemetry, training version:1.23.0, current version:1.22.0
+Package:azureml-train-automl-client, training version:1.23.0, current version:1.22.0
+Package:azureml-train-automl-runtime, training version:1.23.0, current version:1.22.0
+WARNING:root:Please ensure the version of your local conda dependencies match the version on which your model was trained in order to properly retrieve your model.
+WARNING:root:The version of the SDK does not match the version the model was trained on.
+WARNING:root:The consistency in the result may not be guaranteed.
+WARNING:root:Package:azureml-automl-core, training version:1.23.0, current version:1.22.0
+Package:azureml-automl-runtime, training version:1.23.0, current version:1.22.0
+Package:azureml-core, training version:1.23.0, current version:1.22.0
+Package:azureml-dataprep, training version:2.10.1, current version:2.9.1
+Package:azureml-dataprep-native, training version:30.0.0, current version:29.0.0
+Package:azureml-dataprep-rslex, training version:1.8.0, current version:1.7.0
+Package:azureml-dataset-runtime, training version:1.23.0, current version:1.22.0
+Package:azureml-defaults, training version:1.23.0, current version:1.22.0
+Package:azureml-interpret, training version:1.23.0, current version:1.22.0
+Package:azureml-mlflow, training version:1.23.0, current version:1.22.0
+Package:azureml-pipeline-core, training version:1.23.0, current version:1.22.0
+Package:azureml-telemetry, training version:1.23.0, current version:1.22.0
+Package:azureml-train-automl-client, training version:1.23.0, current version:1.22.0
+Package:azureml-train-automl-runtime, training version:1.23.0, current version:1.22.0
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-10-34aa7201c26a> in <module>
+      1 # Retrieve and save your best automl model.
+----> 2 best_automl_run, best_automl_model = automl_run.get_output()
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/azureml/train/automl/run.py in get_output(self, iteration, metric, return_onnx_model, return_split_onnx_model, **kwargs)
+    699                     fitted_model = _download_automl_onnx_model(curr_run, model_name)
+    700                 else:
+--> 701                     fitted_model = _download_automl_model(curr_run, model_name)
+    702 
+    703             return curr_run, fitted_model
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/azureml/train/automl/_model_download_utilities.py in _download_automl_model(run, model_name)
+     88             # Pass through any exceptions from loading the model.
+     89             # Try is used here to ensure we can cleanup the side effect of model downlad.
+---> 90             model = _load_automl_model(model_path)
+     91             if model is None:
+     92                 # If we can retrieve the automl runtime version, we do so we can inform the user what to install.
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/azureml/train/automl/_model_download_utilities.py in _load_automl_model(model_path)
+    172         import azureml.train.automl.runtime
+    173         with open(model_path, "rb") as model_file:
+--> 174             fitted_model = pickle.load(model_file)  # type: Optional[Any]
+    175             return fitted_model
+    176     except ImportError as e:
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/xgboost/core.py in __setstate__(self, state)
+   1086             ptr = (ctypes.c_char * len(buf)).from_buffer(buf)
+   1087             _check_call(
+-> 1088                 _LIB.XGBoosterUnserializeFromBuffer(handle, ptr, length))
+   1089             state['handle'] = handle
+   1090         self.__dict__.update(state)
+
+/anaconda/envs/azureml_py36/lib/python3.6/ctypes/__init__.py in __getattr__(self, name)
+    359         if name.startswith('__') and name.endswith('__'):
+    360             raise AttributeError(name)
+--> 361         func = self.__getitem__(name)
+    362         setattr(self, name, func)
+    363         return func
+
+/anaconda/envs/azureml_py36/lib/python3.6/ctypes/__init__.py in __getitem__(self, name_or_ordinal)
+    364 
+    365     def __getitem__(self, name_or_ordinal):
+--> 366         func = self._FuncPtr((name_or_ordinal, self))
+    367         if not isinstance(name_or_ordinal, int):
+    368             func.__name__ = name_or_ordinal
+
+AttributeError: /anaconda/envs/azureml_py36/lib/libxgboost.so: undefined symbol: XGBoosterUnserializeFromBuffer
