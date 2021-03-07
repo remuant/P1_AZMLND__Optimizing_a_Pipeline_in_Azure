@@ -182,5 +182,5 @@ best_hyperdrive_model = best_run.register_model(
 * Make use of the Logistic Regression Classifier's weighting parameter.
 
 ## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
+**Deleting the compute cluster in the code:**
+![alt text](./img/delete_cluster.png "Deleting the compute cluster in the code.")
