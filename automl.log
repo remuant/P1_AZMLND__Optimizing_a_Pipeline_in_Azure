@@ -1,64 +1,12 @@
-2021-03-03 16:28:49.400 - INFO - 5207 - azureml.train.automl.automlconfig._start_execution:211 - Submitting remote.
-2021-03-03 17:21:45.782 - INFO - 5207 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
-2021-03-03 17:21:45.840 - INFO - 5207 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
-2021-03-03 17:21:45.853 - INFO - 5207 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetChildren
-2021-03-03 17:21:45.964 - INFO - 5207 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=111.24[ms]
-2021-03-03 17:21:45.964 - INFO - 5207 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=124.02[ms]
-2021-03-03 17:21:45.972 - INFO - 5207 - azureml.train.automl._model_download_utilities._log_activity:54 - ActivityStarted: DownloadModel
-2021-03-03 17:21:58.086 - INFO - 5207 - azureml.automl.runtime.distributed.utilities.horovod_initialized:58 - Horovod not found in current environment. Distribution via Horovod will be disabled.
-2021-03-03 17:22:01.982 - INFO - 5207 - azureml.automl.runtime.featurization.data_transformer.__init__:174 - Feature sweeping enabled: False
-2021-03-03 17:22:01.982 - INFO - 5207 - azureml.automl.runtime.featurization.data_transformer.__init__:175 - Feature sweeping timeout: 86400
-2021-03-03 17:22:04.389 - CRITICAL - 5207 - azureml.train.automl._model_download_utilities.log_traceback:224 - Type: Unclassified
-Class: AttributeError
-Message: /anaconda/envs/azureml_py36/lib/libxgboost.so: undefined symbol: XGBoosterUnserializeFromBuffer
-Traceback:
-  File "_model_download_utilities.py", line 174, in _load_automl_model
-    fitted_model = pickle.load(model_file)  # type: Optional[Any]
-  File "core.py", line 1088, in __setstate__
-    _LIB.XGBoosterUnserializeFromBuffer(handle, ptr, length))
-  File "__init__.py", line 361, in __getattr__
-    func = self.__getitem__(name)
-  File "__init__.py", line 366, in __getitem__
-    func = self._FuncPtr((name_or_ordinal, self))
-
-ExceptionTarget: Unspecified
-2021-03-03 17:22:04.716 - CRITICAL - 5207 - azureml.train.automl._model_download_utilities.log_traceback:224 - Type: Unclassified
-Class: AttributeError
-Message: /anaconda/envs/azureml_py36/lib/libxgboost.so: undefined symbol: XGBoosterUnserializeFromBuffer
-Traceback:
-  File "telemetry_activity_logger.py", line 57, in _log_activity
-    yield
-  File "_model_download_utilities.py", line 90, in _download_automl_model
-    model = _load_automl_model(model_path)
-  File "_model_download_utilities.py", line 174, in _load_automl_model
-    fitted_model = pickle.load(model_file)  # type: Optional[Any]
-  File "core.py", line 1088, in __setstate__
-    _LIB.XGBoosterUnserializeFromBuffer(handle, ptr, length))
-  File "__init__.py", line 361, in __getattr__
-    func = self.__getitem__(name)
-  File "__init__.py", line 366, in __getitem__
-    func = self._FuncPtr((name_or_ordinal, self))
-
-ExceptionTarget: Unspecified
-2021-03-03 17:22:04.716 - INFO - 5207 - azureml.train.automl._model_download_utilities._log_activity:92 - ActivityCompleted: Activity=DownloadModel, HowEnded=Failure, Duration=18744.42[ms]
-2021-03-03 17:22:04.717 - CRITICAL - 5207 - azureml.train.automl.run.log_traceback:224 - Type: Unclassified
-Class: AttributeError
-Message: /anaconda/envs/azureml_py36/lib/libxgboost.so: undefined symbol: XGBoosterUnserializeFromBuffer
-Traceback:
-  File "telemetry_activity_logger.py", line 57, in _log_activity
-    yield
-  File "run.py", line 701, in get_output
-    fitted_model = _download_automl_model(curr_run, model_name)
-  File "_model_download_utilities.py", line 90, in _download_automl_model
-    model = _load_automl_model(model_path)
-  File "_model_download_utilities.py", line 174, in _load_automl_model
-    fitted_model = pickle.load(model_file)  # type: Optional[Any]
-  File "core.py", line 1088, in __setstate__
-    _LIB.XGBoosterUnserializeFromBuffer(handle, ptr, length))
-  File "__init__.py", line 361, in __getattr__
-    func = self.__getitem__(name)
-  File "__init__.py", line 366, in __getitem__
-    func = self._FuncPtr((name_or_ordinal, self))
-
-ExceptionTarget: Unspecified
-2021-03-03 17:22:04.718 - INFO - 5207 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=18935.25[ms]
+2021-03-12 14:50:56.376 - INFO - 27525 - azureml.train.automl.automlconfig._start_execution:211 - Submitting remote.
+2021-03-12 15:48:40.456 - INFO - 27525 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-03-12 15:48:40.505 - INFO - 27525 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetOutput
+2021-03-12 15:48:40.531 - INFO - 27525 - azureml.train.automl.run._log_activity:54 - ActivityStarted: GetChildren
+2021-03-12 15:48:40.682 - INFO - 27525 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=151.04[ms]
+2021-03-12 15:48:40.682 - INFO - 27525 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=177.04[ms]
+2021-03-12 15:48:40.695 - INFO - 27525 - azureml.train.automl._model_download_utilities._log_activity:54 - ActivityStarted: DownloadModel
+2021-03-12 15:48:46.920 - INFO - 27525 - azureml.automl.runtime.distributed.utilities.horovod_initialized:58 - Horovod not found in current environment. Distribution via Horovod will be disabled.
+2021-03-12 15:48:47.719 - INFO - 27525 - azureml.automl.runtime.featurization.data_transformer.__init__:174 - Feature sweeping enabled: False
+2021-03-12 15:48:47.719 - INFO - 27525 - azureml.automl.runtime.featurization.data_transformer.__init__:175 - Feature sweeping timeout: 86400
+2021-03-12 15:48:48.106 - INFO - 27525 - azureml.train.automl._model_download_utilities._log_activity:92 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=7411.18[ms]
+2021-03-12 15:48:48.107 - INFO - 27525 - azureml.train.automl.run._log_activity:92 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=7650.72[ms]
